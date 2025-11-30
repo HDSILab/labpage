@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Data Science and Intelligence Lab</title>
+    <!-- 引入 Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
+    <!-- 设置默认字体为 Inter --><style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f8f8f8; /* 浅灰白色背景 */
+            color: #333;
+        }
+        /* 自定义滚动条，使其更美观 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1; /* 浅灰色 */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; /* 中灰色 */
+        }
+        .nav-button.active {
+            border-bottom: 2px solid #6366f1; /* 激活状态下底部边框 */
+            color: #1a202c !important; /* 深色文字 */
+        }
+
+        /* 语言切换 CSS 规则 */
+        .lang-cn .lang-en-text { display: none; }
+        .lang-en .lang-cn-text { display: none; }
+        /* 确保在没有设置语言类时默认显示中文 */
+        body:not(.lang-en) .lang-en-text { display: none; }
+        
+        /* 确保图片自适应宽度 */
+        .illustration-image {
+            width: 100%;
+            height: auto;
+            max-width: 500px; /* 限制最大宽度 */
+            object-fit: contain;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+    <!-- Lucide Icons for visual elements --><script type="module">
+        import { createIcons, Activity, Brain, Rocket, User, BookOpen, ExternalLink } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+        createIcons({ icons: { Activity, Brain, Rocket, User, BookOpen, ExternalLink } });
+    </script>
+</head>
+<body class="lang-cn">
+
+    <div id="app" class="min-h-screen flex flex-col">
+        <!-- 头部导航栏 --><header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-20">
+                    <!-- 实验室名称 --><div class="flex-shrink-0">
+                        <span class="text-3xl font-extrabold text-gray-800 tracking-tight">
+                            <span class="lang-cn-text">健康数据科学与智能实验室</span>
+                            <span class="lang-en-text">Health Data Science & Intelligence Lab</span>
+                        </span>
+                    </div>
+                    <!-- 导航链接和语言切换 -->
+                    <div class="flex items-center space-x-6 md:space-x-10">
+                        <nav class="flex space-x-6">
+                            <button onclick="app.setActiveTab('research')" id="nav-research"
+                                    class="nav-button px-3 py-2 -mb-2 text-base font-medium transition duration-150 ease-in-out text-gray-600 hover:text-gray-900">
+                                <span class="lang-cn-text">研究方向</span>
+                                <span class="lang-en-text">Research</span>
+                            </button>
+                            <button onclick="app.setActiveTab('members')" id="nav-members"
+                                    class="nav-button px-3 py-2 -mb-2 text-base font-medium transition duration-150 ease-in-out text-gray-600 hover:text-gray-900">
+                                <span class="lang-cn-text">研究成员</span>
+                                <span class="lang-en-text">Members</span>
+                            </button>
+                            <button onclick="app.setActiveTab('outputs')" id="nav-outputs"
+                                    class="nav-button px-3 py-2 -mb-2 text-base font-medium transition duration-150 ease-in-out text-gray-600 hover:text-gray-900">
+                                <span class="lang-cn-text">研究成果</span>
+                                <span class="lang-en-text">Publications</span>
+                            </button>
+                        </nav>
+                        
+                        <!-- 语言切换按钮组 -->
+                        <div class="flex items-center border border-gray-300 rounded-full overflow-hidden shadow-sm">
+                            <button onclick="app.setLanguage('cn')" id="lang-cn-btn" 
+                                class="px-3 py-1 text-sm font-medium transition duration-150 bg-indigo-600 text-white">CN</button>
+                            <button onclick="app.setLanguage('en')" id="lang-en-btn" 
+                                class="px-3 py-1 text-sm font-medium transition duration-150 bg-white text-gray-600 hover:bg-gray-100">EN</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- 主内容区域 --><main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+            
+            <!-- 实验室介绍 Banner --><section class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-8 mb-12 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
+                <div class="md:w-1/2">
+                    <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+                        <span class="lang-cn-text">探索健康数据，驱动智能未来</span>
+                        <span class="lang-en-text">Exploring Health Data, Driving an Intelligent Future</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-6">
+                        <span class="lang-cn-text">
+                            Health Data Science & Intelligence Lab 致力于利用前沿的数据科学和人工智能技术，
+                            从海量健康数据中挖掘洞察，赋能医疗健康，加速科学发现，共同构建一个更健康、更智能的社会。
+                        </span>
+                        <span class="lang-en-text">
+                            The Health Data Science & Intelligence Lab is dedicated to leveraging cutting-edge data science and AI technologies to extract insights from massive health data, empowering healthcare, accelerating scientific discovery, and jointly building a healthier, smarter society.
+                        </span>
+                    </p>
+                    <a href="#research" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 transition">
+                        <span class="lang-cn-text">了解我们的研究</span>
+                        <span class="lang-en-text">View Our Research</span>
+                        <svg data-lucide="external-link" class="w-4 h-4 ml-2"></svg>
+                    </a>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <!-- 全局实验室概念图 -->
+                    <!-- 占位符 URL 已替换为 Nature 风格图片链接 -->
+                    <img src="img/lab.png" alt="实验室核心概念图" class="illustration-image">
+                </div>
+            </section>
+
+            <!-- 研究方向板块 (默认显示) --><section id="research" class="tab-content">
+                <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
+                    <span class="lang-cn-text">研究方向</span>
+                    <span class="lang-en-text">Research Directions</span>
+                </h1>
+                <div class="grid md:grid-cols-1 gap-12">
+                    
+                    <!-- 方向 1 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-blue-500">
+                        <div class="md:w-1/3 flex-shrink-0 flex justify-center">
+                            <!-- 方向1 配图：公共卫生与新型数据 -->
+                            <img src="https://placehold.co/400x300/e0f2ff/004d99?text=Public+Health+%26+New+Data" alt="公共卫生与新型数据概念图" class="illustration-image">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-3xl font-semibold text-gray-900 mb-3 flex items-center">
+                                <i data-lucide="activity" class="w-8 h-8 text-blue-600 mr-3"></i>
+                                <span class="lang-cn-text">利用新型数据理解公共卫生</span>
+                                <span class="lang-en-text">Understanding Public Health from Novel Data</span>
+                            </h2>
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="lang-cn-text">
+                                    我们深入探索来自移动设备、可穿戴设备、应用程序、互联网平台以及遥感技术等多样化数据源，
+                                    构建先进的数据分析模型，以实时洞察公共卫生事件、疾病传播模式、人群健康行为和社会心理趋势。
+                                    我们的目标是为疾病预防、健康管理和政策制定提供及时、精准的数据支持。
+                                </span>
+                                <span class="lang-en-text">
+                                    We leverage data streams from novel sources (mobile devices, wearables, apps, the web, remote sensing) to build advanced analytical models for real-time monitoring, analysis, and prediction of public health trends, disease outbreaks, and health behaviors. Our goal is to provide timely, precise data support for disease prevention and policy making.
+                                
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 方向 2 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row-reverse items-center space-y-6 md:space-y-0 md:space-x-reverse md:space-x-8 border-r-4 border-emerald-500">
+                        <div class="md:w-1/3 flex-shrink-0 flex justify-center">
+                            <!-- 方向2 配图：AI赋能医疗 -->
+                            <img src="https://placehold.co/400x300/e6ffed/006633?text=AI+in+Healthcare" alt="AI赋能医疗概念图" class="illustration-image">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-3xl font-semibold text-gray-900 mb-3 flex items-center justify-end md:justify-start text-right md:text-left">
+                                <span class="lang-cn-text">用人工智能赋能医疗服务</span>
+                                <span class="lang-en-text">Empowering Healthcare with AI</span>
+                                <i data-lucide="brain" class="w-8 h-8 text-emerald-600 ml-3 md:ml-0 md:mr-3"></i>
+                            </h2>
+                            <p class="text-gray-700 leading-relaxed text-right md:text-left">
+                                <span class="lang-cn-text">
+                                    我们专注于开发和实施尖端的人工智能解决方案，以革新医疗诊断、治疗规划和患者管理。
+                                    利用深度学习、自然语言处理和计算机视觉技术，我们的研究旨在实现疾病的早期精准识别、
+                                    个性化治疗方案的制定，以及提升医疗流程的智能化与效率，最终改善患者的健康结果。
+                                </span>
+                                <span class="lang-en-text">
+                                    We focus on developing and deploying advanced AI algorithms (including deep learning, NLP, and computer vision) for revolutionizing medical diagnosis, prognosis prediction, personalized treatment planning, and optimizing hospital efficiency, leading to smarter healthcare delivery.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 方向 3 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-purple-500">
+                        <div class="md:w-1/3 flex-shrink-0 flex justify-center">
+                            <!-- 方向3 配图：AI科学家 -->
+                            <img src="https://placehold.co/400x300/f0e6ff/663399?text=AI+Scientist" alt="AI科学家加速研究概念图" class="illustration-image">
+                        </div>
+                        <div class="md:w-2/3">
+                            <h2 class="text-3xl font-semibold text-gray-900 mb-3 flex items-center">
+                                <i data-lucide="rocket" class="w-8 h-8 text-purple-600 mr-3"></i>
+                                <span class="lang-cn-text">AI科学家加速健康研究</span>
+                                <span class="lang-en-text">Accelerating Health Research with AI Scientist</span>
+                            </h2>
+                            <p class="text-gray-700 leading-relaxed">
+                                <span class="lang-cn-text">
+                                    我们致力于构建和利用“AI科学家”平台，它通过集成大型语言模型（LLM）、知识图谱和自动化推理引擎，
+                                    模拟和辅助科学研究的各个环节。从自动化文献综述、生成创新假设、设计虚拟实验到分析复杂数据，
+                                    我们的“AI科学家”旨在大幅缩短研发周期，加速在健康和生命科学领域的突破性发现。
+                                </span>
+                                <span class="lang-en-text">
+                                    We build the "AI Scientist" platform, utilizing Generative AI and Large Language Models (LLMs) to automate scientific discovery workflows, including literature review, hypothesis generation, experimental design, and data interpretation, significantly accelerating breakthroughs in health and medical fields.
+                                </span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 研究成员板块 --><section id="members" class="tab-content hidden">
+                <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
+                    <span class="lang-cn-text">研究成员</span>
+                    <span class="lang-en-text">Research Members</span>
+                </h1>
+                
+                <!-- PI 区域 --><div class="mb-12 bg-white p-8 rounded-xl shadow-lg border-t-4 border-indigo-600">
+                    <h2 class="text-3xl font-semibold text-gray-700 mb-6">
+                        <span class="lang-cn-text">实验室负责人 (PI)</span>
+                        <span class="lang-en-text">Principal Investigator (PI)</span>
+                    </h2>
+                    <div class="flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8">
+                        <!-- PI 配图/照片 -->
+                        <div class="flex-shrink-0">
+                          <img src="img/xiatong.jpg" alt="夏彤教授照片" class="w-32 h-32 rounded-full object-cover shadow-lg border-4 border-indigo-200">
+                        </div>
+                        <div>
+                            <h3 class="text-3xl font-bold text-gray-900">
+                                <!-- PI 信息 -->
+                                <span class="lang-cn-text">夏彤 (Xia Tong)</span>
+                                <span class="lang-en-text">Tong Xia (PI)</span>
+                            </h3>
+                            <p class="text-xl text-indigo-600 mb-3">
+                                <span class="lang-cn-text">助理教授 / 博士生导师, 公共卫生与健康学院</span>
+                                <span class="lang-en-text">Assistant Professor / Ph.D. Supervisor, School of Public Health</span>
+                            </p>
+                            <p class="text-gray-700 mb-4 leading-relaxed">
+                                <span class="lang-cn-text">
+                                    夏彤助理教授的研究主要关注数智赋能的健康监测，尤其是基于移动与可穿戴设备的健康监测与管理。她的研究领域包括面向健康预测的可信机器学习、面向健康推理的基础模型与大模型智能体，以及移动与可穿戴设备的数据建模与健康应用。
+                                </span>
+                                <span class="lang-en-text">
+                                    Assistant Professor Tong Xia's research focuses on data-intelligence-enabled health monitoring, particularly based on mobile and wearable devices. Her research spans Trustworthy Machine Learning for Health Prediction, Foundation Models and LLM Agents for Health Inference, and Data Modeling for Mobile/Wearable Health Applications.
+                                </span>
+                            </p>
+                            <!-- 链接地址 -->
+                            <a href="https://vsph.tsinghua.edu.cn/info/1010/2625.htm" target="_blank" class="text-indigo-600 hover:text-indigo-800 font-medium flex items-center group">
+                                <span class="lang-cn-text">查看完整简历</span>
+                                <span class="lang-en-text">View Full Profile</span>
+                                <svg data-lucide="external-link" class="w-4 h-4 ml-2 group-hover:translate-x-1 transition"></svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 学生区域 --><div>
+                    <h2 class="text-3xl font-semibold text-gray-700 mb-6">
+                        <span class="lang-cn-text">博士/硕士研究生</span>
+                        <span class="lang-en-text">Ph.D. and Master's Students</span>
+                    </h2>
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- 学生 1: 黄钰莹 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-blue-300 hover:shadow-lg transition">
+                            <img src="https://placehold.co/120x120/a7d7f7/2a6aa8?text=黄钰莹" alt="黄钰莹 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-blue-200">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                <span class="lang-cn-text">黄钰莹 (Huang Yuying)</span>
+                                <span class="lang-en-text">Yuying Huang</span>
+                            </h3>
+                            <p class="text-indigo-500 mb-2">
+                                <span class="lang-cn-text">2025级硕士生</span>
+                                <span class="lang-en-text">Master's Student (G2025)</span>
+                            </p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                <span class="lang-cn-text">研究兴趣：基于可穿戴设备数据研究影响健康的行为。</span>
+                                <span class="lang-en-text">Research Interests: Researching health-influencing behaviors based on wearable device data.</span>
+                            </p>
+                        </div>
+
+                        <!-- 学生 2: 田星月 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-emerald-300 hover:shadow-lg transition">
+                            <img src="https://placehold.co/120x120/a3e6b2/288f3b?text=田星月" alt="田星月 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-emerald-200">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                <span class="lang-cn-text">田星月 (Tian Xingyue)</span>
+                                <span class="lang-en-text">Xingyue Tian</span>
+                            </h3>
+                            <p class="text-indigo-500 mb-2">
+                                <span class="lang-cn-text">2025级硕士生</span>
+                                <span class="lang-en-text">Master's Student (G2025)</span>
+                            </p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                <span class="lang-cn-text">研究兴趣：可穿戴设备数据机器学习。</span>
+                                <span class="lang-en-text">Research Interests: Machine learning for wearable device data.</span>
+                            </p>
+                        </div>
+
+                        <!-- 学生 3: 朱可 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-purple-300 hover:shadow-lg transition">
+                            <img src="https://placehold.co/120x120/c2a7f7/6a289f?text=朱可" alt="朱可 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-purple-200">
+                            <h3 class="text-xl font-semibold text-gray-900">
+                                <span class="lang-cn-text">朱可 (Zhu Ke)</span>
+                                <span class="lang-en-text">Ke Zhu</span>
+                            </h3>
+                            <p class="text-indigo-500 mb-2">
+                                <span class="lang-cn-text">2026级直博生</span>
+                                <span class="lang-en-text">Ph.D. Candidate (G2026)</span>
+                            </p>
+                            <p class="text-gray-600 text-sm leading-relaxed">
+                                <span class="lang-cn-text">研究兴趣：大模型智能体，AI科学家。</span>
+                                <span class="lang-en-text">Research Interests: LLM Agents, AI Scientist.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 研究成果板块 (论文) --><section id="outputs" class="tab-content hidden">
+                <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
+                    <span class="lang-cn-text">研究成果 (精选论文)</span>
+                    <span class="lang-en-text">Publications (Selected)</span>
+                </h1>
+                
+                <!-- 已发表 (Published) 区域 --><h2 class="text-3xl font-semibold text-gray-700 mb-6 mt-10">
+                    <span class="lang-cn-text">已发表 (Published)</span>
+                    <span class="lang-en-text">Published</span>
+                </h2>
+                <div class="space-y-8">
+                    
+                    <!-- 论文 1 (已发表) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 hover:shadow-lg transition">
+                        <div class="flex items-start">
+                            <i data-lucide="book-open" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900 leading-snug">
+                                    <span class="font-bold">Online food delivery under extreme heat: a case study of Beijing</span>
+                                </p>
+                                <p class="text-sm text-gray-600 mt-1">
+                                    <span class="font-semibold">
+                                        Xinran Xie, <strong class="text-gray-800">Tong Xia</strong>, Yong Li, & Yining Shi.
+                                    </span> 
+                                    <span class="italic text-gray-700">Humanities and Social Sciences Communications</span> <span class="text-gray-500">vol. 12, Article 1811 (2025).</span>
+                                </p>
+                                <a href="https://www.nature.com/articles/s41599-025-06090-2?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20251121&utm_content=10.1057/s41599-025-06090-2" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm mt-2 inline-flex items-center group">
+                                    <span class="lang-cn-text">阅读全文</span>
+                                    <span class="lang-en-text">Read Full Text</span>
+                                    <svg data-lucide="external-link" class="w-4 h-4 ml-1 group-hover:translate-x-0.5 transition"></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 在投 (Under Review) 区域 --><h2 class="text-3xl font-semibold text-gray-700 mb-6 mt-10">
+                    <span class="lang-cn-text">在投 (Under Review)</span>
+                    <span class="lang-en-text">Under Review</span>
+                </h2>
+                <div class="space-y-8">
+
+                    <!-- 论文 2 (在投 1) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
+                        <div class="flex items-start">
+                            <i data-lucide="book-open" class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0"></i>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900 leading-snug">
+                                    <span class="font-bold">Accelerating Urban Science Research with AI Urban Scientist</span>
+                                </p>
+                                <p class="text-sm text-gray-600 mt-1 text-gray-700 leading-relaxed">
+                                    <span class="font-semibold">
+                                        Tong Xia, Jiankun Zhang, Ruiwen You, Ao Xu, Linghao Zhang, Tengyao Tu, Jingzhi Wang, Jinghua Piao, Yunke Zhang, Fengli Xu, Yong Li.
+                                    </span>
+                                </p>
+                                <p class="text-xs text-gray-600 italic mt-1">
+                                    <span class="lang-cn-text">在投中...</span>
+                                    <span class="lang-en-text">Status: Under Review...</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 论文 3 (在投 2) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
+                        <div class="flex items-start">
+                            <i data-lucide="book-open" class="w-6 h-6 text-purple-600 mt-1 flex-shrink-0"></i>
+                            <div class="ml-4">
+                                <p class="text-lg font-medium text-gray-900 leading-snug">
+                                    <span class="font-bold">Uncovering Respiratory Effects of Short-term PM<sub>2.5</sub> Exposure through Global Nocturnal Cough Monitoring</span>
+                                </p>
+                                <p class="text-sm text-gray-600 mt-1 text-gray-700 leading-relaxed">
+                                    <span class="font-semibold">
+                                        Tong Xia, Emil Carsson, Mikael Kågebäck, Montagna Marco, John S. Ji, Cecilia Mascolo.
+                                    </span>
+                                </p>
+                                <p class="text-xs text-gray-600 italic mt-1">
+                                    <span class="lang-cn-text">在投中...</span>
+                                    <span class="lang-en-text">Status: Under Review...</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-12 text-center">
+                    <button class="bg-gray-200 text-gray-800 px-8 py-3 rounded-full font-medium hover:bg-gray-300 transition shadow-sm hover:shadow-md">
+                        <span class="lang-cn-text">查看所有出版物 (GitHub/Google Scholar)</span>
+                        <span class="lang-en-text">View All Publications (GitHub/Google Scholar)</span>
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- 底部版权信息 --><footer class="bg-gray-100 text-gray-600 mt-16 py-8 border-t border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+                <p>
+                    <span class="lang-cn-text">&copy; 2025 健康数据科学与智能实验室. 版权所有.</span>
+                    <span class="lang-en-text">&copy; 2025 Health Data Science and Intelligence Lab. All Rights Reserved.</span>
+                </p>
+                <p class="mt-2">
+                    <span class="lang-cn-text">联系方式：</span>
+                    <span class="lang-en-text">Contact: </span>
+                    <a href="mailto:contact@hdsi.lab" class="text-indigo-600 hover:text-indigo-800">contact@hdsi.lab</a>
+                </p>
+                <!-- 新增：由 Gemini 生成的声明 --><p class="text-xs text-gray-600 mt-2">
+                    <span class="lang-cn-text">此页面由 Gemini 生成。</span>
+                    <span class="lang-en-text">This page was generated by Gemini.</span>
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript for Tab and Language Switching --><script>
+        const app = {
+            activeTab: 'research', // 默认激活研究方向
+            currentLang: 'cn', // 默认中文
+            
+            // 初始化：根据初始状态设置按钮样式和内容显示
+            init() {
+                this.setActiveTab(this.activeTab);
+                this.setLanguage(this.currentLang);
+            },
+
+            // 设置当前激活的标签页
+            setActiveTab(tabName) {
+                this.activeTab = tabName;
+                const tabs = document.querySelectorAll('.tab-content');
+                const navButtons = document.querySelectorAll('.nav-button');
+
+                // 隐藏所有内容区域
+                tabs.forEach(tab => {
+                    tab.classList.add('hidden');
+                });
+
+                // 重置所有导航按钮的样式
+                navButtons.forEach(button => {
+                    button.classList.remove('active', 'text-gray-900');
+                    button.classList.add('text-gray-600');
+                });
+
+                // 显示当前激活的内容区域
+                const activeContent = document.getElementById(tabName);
+                if (activeContent) {
+                    activeContent.classList.remove('hidden');
+                }
+
+                // 更新当前激活的导航按钮样式
+                const activeNav = document.getElementById(`nav-${tabName}`);
+                if (activeNav) {
+                    activeNav.classList.remove('text-gray-600');
+                    activeNav.classList.add('active', 'text-gray-900');
+                }
+            },
+            
+            // 设置当前语言
+            setLanguage(lang) {
+                this.currentLang = lang;
+                const body = document.body;
+                const cnBtn = document.getElementById('lang-cn-btn');
+                const enBtn = document.getElementById('lang-en-btn');
+                
+                // 切换 Body 上的语言类
+                body.classList.remove('lang-cn', 'lang-en');
+                body.classList.add(`lang-${lang}`);
+                
+                // 更新语言按钮样式
+                if (lang === 'cn') {
+                    cnBtn.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-100');
+                    cnBtn.classList.add('bg-indigo-600', 'text-white');
+                    enBtn.classList.remove('bg-indigo-600', 'text-white');
+                    enBtn.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-100');
+                } else {
+                    enBtn.classList.remove('bg-white', 'text-gray-600', 'hover:bg-gray-100');
+                    enBtn.classList.add('bg-indigo-600', 'text-white');
+                    cnBtn.classList.remove('bg-indigo-600', 'text-white');
+                    cnBtn.classList.add('bg-white', 'text-gray-600', 'hover:bg-gray-100');
+                }
+            }
+        };
+
+        // 页面加载完成后运行初始化
+        window.onload = () => {
+            app.init();
+        };
+    </script>
+</body>
+</html>
