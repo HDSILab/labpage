@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health Data Science and Intelligence Lab</title>
-    <!-- 引入 Tailwind CSS CDN --><script src="https://cdn.tailwindcss.com"></script>
-    <!-- 设置默认字体为 Inter --><style>
+    <!-- 引入 Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 设置默认字体为 Inter -->
+    <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
         body {
             font-family: 'Inter', sans-serif;
@@ -44,18 +46,41 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
-    <!-- Lucide Icons for visual elements --><script type="module">
-        import { createIcons, Activity, Brain, Rocket, User, BookOpen, ExternalLink } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
-        createIcons({ icons: { Activity, Brain, Rocket, User, BookOpen, ExternalLink } });
+    <!-- Lucide Icons for visual elements -->
+    <script type="module">
+        import {
+            createIcons,
+            Activity,
+            Brain,
+            Rocket,
+            User,
+            BookOpen,
+            ExternalLink,
+            Heart
+        } from 'https://unpkg.com/lucide@latest/dist/esm/lucide.js';
+
+        createIcons({
+            icons: {
+                Activity,
+                Brain,
+                Rocket,
+                User,
+                BookOpen,
+                ExternalLink,
+                Heart
+            }
+        });
     </script>
 </head>
 <body class="lang-cn">
 
     <div id="app" class="min-h-screen flex flex-col">
-        <!-- 头部导航栏 --><header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
+        <!-- 头部导航栏 -->
+        <header class="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-20">
-                    <!-- 实验室名称 --><div class="flex-shrink-0">
+                    <!-- 实验室名称 -->
+                    <div class="flex-shrink-0">
                         <span class="text-3xl font-extrabold text-gray-800 tracking-tight">
                             <span class="lang-cn-text">清华大学健康数据科学与智能实验室</span>
                             <span class="lang-en-text">Tsinghu University Health Data Science & Intelligence Lab</span>
@@ -93,9 +118,11 @@
             </div>
         </header>
 
-        <!-- 主内容区域 --><main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <!-- 主内容区域 -->
+        <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
             
-            <!-- 实验室介绍 Banner --><section class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-8 mb-12 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
+            <!-- 实验室介绍 Banner -->
+            <section class="bg-gradient-to-br from-gray-50 to-white rounded-xl shadow-lg p-8 mb-12 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0 md:space-x-8">
                 <div class="md:w-1/2">
                     <h1 class="text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
                         <span class="lang-cn-text whitespace-nowrap">探索健康数据，驱动智能未来</span>
@@ -118,19 +145,20 @@
                 </div>
                 <div class="md:w-1/2 flex justify-center">
                     <!-- 全局实验室概念图 -->
-                    <!-- 占位符 URL 已替换为 Nature 风格图片链接 -->
                     <img src="img/lab.png" alt="实验室核心概念图" class="illustration-image">
                 </div>
             </section>
 
-            <!-- 研究方向板块 (默认显示) --><section id="research" class="tab-content">
+            <!-- 研究方向板块 (默认显示) -->
+            <section id="research" class="tab-content">
                 <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
                     <span class="lang-cn-text">研究方向</span>
                     <span class="lang-en-text">Research Directions</span>
                 </h1>
                 <div class="grid md:grid-cols-1 gap-12">
                     
-                    <!-- 方向 1 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-blue-500">
+                    <!-- 方向 1 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-blue-500">
                         <div class="md:w-1/3 flex-shrink-0 flex justify-center">
                             <!-- 方向1 配图：公共卫生与新型数据 -->
                             <img src="https://placehold.co/400x300/e0f2ff/004d99?text=Public+Health+%26+New+Data" alt="公共卫生与新型数据概念图" class="illustration-image">
@@ -155,7 +183,8 @@
                         </div>
                     </div>
 
-                    <!-- 方向 2 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row-reverse items-center space-y-6 md:space-y-0 md:space-x-reverse md:space-x-8 border-r-4 border-emerald-500">
+                    <!-- 方向 2 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row-reverse items-center space-y-6 md:space-y-0 md:space-x-reverse md:space-x-8 border-r-4 border-emerald-500">
                         <div class="md:w-1/3 flex-shrink-0 flex justify-center">
                             <!-- 方向2 配图：AI赋能医疗 -->
                             <img src="https://placehold.co/400x300/e6ffed/006633?text=AI+in+Healthcare" alt="AI赋能医疗概念图" class="illustration-image">
@@ -179,7 +208,8 @@
                         </div>
                     </div>
 
-                    <!-- 方向 3 --><div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-purple-500">
+                    <!-- 方向 3 -->
+                    <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300 flex flex-col md:flex-row items-center space-y-6 md:space-y-0 md:space-x-8 border-l-4 border-purple-500">
                         <div class="md:w-1/3 flex-shrink-0 flex justify-center">
                             <!-- 方向3 配图：AI科学家 -->
                             <img src="https://placehold.co/400x300/f0e6ff/663399?text=AI+Scientist" alt="AI科学家加速研究概念图" class="illustration-image">
@@ -205,13 +235,15 @@
                 </div>
             </section>
 
-            <!-- 研究成员板块 --><section id="members" class="tab-content hidden">
+            <!-- 研究成员板块 -->
+            <section id="members" class="tab-content hidden">
                 <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
                     <span class="lang-cn-text">研究成员</span>
                     <span class="lang-en-text">Research Members</span>
                 </h1>
                 
-                <!-- PI 区域 --><div class="mb-12 bg-white p-8 rounded-xl shadow-lg border-t-4 border-indigo-600">
+                <!-- PI 区域 -->
+                <div class="mb-12 bg-white p-8 rounded-xl shadow-lg border-t-4 border-indigo-600">
                     <h2 class="text-3xl font-semibold text-gray-700 mb-6">
                         <span class="lang-cn-text">实验室负责人 (PI)</span>
                         <span class="lang-en-text">Principal Investigator (PI)</span>
@@ -254,14 +286,16 @@
                     </div>
                 </div>
 
-                <!-- 学生区域 --><div>
+                <!-- 学生区域 -->
+                <div>
                     <h2 class="text-3xl font-semibold text-gray-700 mb-6">
                         <span class="lang-cn-text">博士/硕士研究生</span>
                         <span class="lang-en-text">Ph.D. and Master's Students</span>
                     </h2>
                     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         
-                        <!-- 学生 1: 黄钰莹 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-blue-300 hover:shadow-lg transition">
+                        <!-- 学生 1: 黄钰莹 -->
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-blue-300 hover:shadow-lg transition">
                             <img src="img/huang.jpg" alt="黄钰莹 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-blue-200">
                             <h3 class="text-xl font-semibold text-gray-900">
                                 <span class="lang-cn-text">黄钰滢 (Huang Yuying)</span>
@@ -277,7 +311,8 @@
                             </p>
                         </div>
 
-                        <!-- 学生 2: 田星月 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-emerald-300 hover:shadow-lg transition">
+                        <!-- 学生 2: 田星月 -->
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-emerald-300 hover:shadow-lg transition">
                             <img src="img/tian.jpg" alt="田星月 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-emerald-200">
                             <h3 class="text-xl font-semibold text-gray-900">
                                 <span class="lang-cn-text">田星月 (Tian Xingyue)</span>
@@ -293,7 +328,8 @@
                             </p>
                         </div>
 
-                        <!-- 学生 3: 朱可 --><div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-purple-300 hover:shadow-lg transition">
+                        <!-- 学生 3: 朱可 -->
+                        <div class="bg-white p-6 rounded-xl shadow-md text-center border-t-2 border-purple-300 hover:shadow-lg transition">
                             <img src="img/zhu.jpg" alt="朱可 Photo" class="w-28 h-28 rounded-full object-cover mx-auto mb-4 shadow-lg border-2 border-purple-200">
                             <h3 class="text-xl font-semibold text-gray-900">
                                 <span class="lang-cn-text">朱可 (Zhu Ke)</span>
@@ -312,20 +348,23 @@
                 </div>
             </section>
 
-            <!-- 研究成果板块 (论文) --><section id="outputs" class="tab-content hidden">
+            <!-- 研究成果板块 (论文) -->
+            <section id="outputs" class="tab-content hidden">
                 <h1 class="text-4xl font-bold text-gray-800 mb-8 border-b-2 border-gray-200 pb-2">
                     <span class="lang-cn-text">研究成果 (精选论文)</span>
                     <span class="lang-en-text">Publications (Selected)</span>
                 </h1>
                 
 
-                <!-- 已发表 (Published) 区域 --><h2 class="text-3xl font-semibold text-gray-700 mb-6 mt-10">
+                <!-- 已发表 (Published) 区域 -->
+                <h2 class="text-3xl font-semibold text-gray-700 mb-6 mt-10">
                     <span class="lang-cn-text">已发表 (Published)</span>
                     <span class="lang-en-text">Published</span>
                 </h2>
 
                 <div class="space-y-8">    
-                    <!-- 论文 1 (已发表) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 hover:shadow-lg transition">
+                    <!-- 论文 1 (已发表) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-500 hover:shadow-lg transition">
                         <div class="flex items-start">
                             <i data-lucide="book-open" class="w-6 h-6 text-blue-600 mt-1 flex-shrink-0"></i>
                             <div class="ml-4">
@@ -336,6 +375,7 @@
                                     <span class="font-semibold">
                                         Xinran Xie, <strong class="text-gray-800">Tong Xia</strong>, Yong Li, & Yining Shi.
                                     </span> 
+                                    
                                     <span class="italic text-gray-700">Humanities and Social Sciences Communications</span> <span class="text-gray-500">vol. 12, Article 1811 (2025).</span>
                                 </p>
                                 <a href="https://www.nature.com/articles/s41599-025-06090-2?utm_source=rct_congratemailt&utm_medium=email&utm_campaign=oa_20251121&utm_content=10.1057/s41599-025-06090-2" target="_blank" class="text-indigo-600 hover:text-indigo-800 text-sm mt-2 inline-flex items-center group">
@@ -356,7 +396,8 @@
                 </h2>
 
                 <div class="space-y-8">
-                    <!-- 论文 3 (在投 2) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
+                    <!-- 论文 3 (在投 2) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
                         <div class="flex items-start">
                             <i data-lucide="book-open" class="w-6 h-6 text-purple-600 mt-1 flex-shrink-0"></i>
                             <div class="ml-4">
@@ -378,7 +419,8 @@
                 </div>
 
                 <div class="space-y-8">
-                <!-- 论文 4 (在投 3) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
+                <!-- 论文 4 (在投 3) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
                         <div class="flex items-start">
                             <i data-lucide="book-open" class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0"></i>
                             <div class="ml-4">
@@ -400,7 +442,8 @@
                 </div>
 
                 <div class="space-y-8">
-                <!-- 论文 4 (在投 3) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
+                <!-- 论文 4 (在投 3) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
                         <div class="flex items-start">
                             <i data-lucide="book-open" class="w-6 h-6 text-purple-600 mt-1 flex-shrink-0"></i>
                             <div class="ml-4">
@@ -422,7 +465,8 @@
                 </div>
 
                 <div class="space-y-8">
-                  <!-- 论文 2 (在投 1) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
+                  <!-- 论文 2 (在投 1) -->
+                    <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-emerald-500 hover:shadow-lg transition">
                         <div class="flex items-start">
                             <i data-lucide="book-open" class="w-6 h-6 text-emerald-600 mt-1 flex-shrink-0"></i>
                             <div class="ml-4">
@@ -443,22 +487,24 @@
                     </div>
 
                     <div class="space-y-8">
-                     <!-- 论文 4 (在投 3) --><div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
-                        <div class="flex items-start">
-                            <i data-lucide="book-open" class="w-6 h-6 text-purple-600 mt-1 flex-shrink-0"></i>
-                            <div class="ml-4">
-                                <p class="text-lg font-medium text-gray-900 leading-snug">
-                                    <span class="font-bold">Perceiving Exposure Segregation with AI Urban Scientist </span>
-                                </p>
-                                <p class="text-sm text-gray-600 mt-1 text-gray-700 leading-relaxed">
-                                    <span class="font-semibold">
-                                        Yunke Zhang, Ruolong Ma, Xin Zhang, Yu Shang, Fengli Xu, Tong Xia, and Yong Li
-                                    </span>
-                                </p>
-                                <p class="text-xs text-gray-600 italic mt-1">
-                                    <span class="lang-cn-text">在投中...</span>
-                                    <span class="lang-en-text">Status: Under Review...</span>
-                                </p>
+                     <!-- 论文 4 (在投 3) -->
+                        <div class="bg-white p-6 rounded-xl shadow-md border-l-4 border-purple-500 hover:shadow-lg transition">
+                            <div class="flex items-start">
+                                <i data-lucide="book-open" class="w-6 h-6 text-purple-600 mt-1 flex-shrink-0"></i>
+                                <div class="ml-4">
+                                    <p class="text-lg font-medium text-gray-900 leading-snug">
+                                        <span class="font-bold">Perceiving Exposure Segregation with AI Urban Scientist </span>
+                                    </p>
+                                    <p class="text-sm text-gray-600 mt-1 text-gray-700 leading-relaxed">
+                                        <span class="font-semibold">
+                                            Yunke Zhang, Ruolong Ma, Xin Zhang, Yu Shang, Fengli Xu, Tong Xia, and Yong Li
+                                        </span>
+                                    </p>
+                                    <p class="text-xs text-gray-600 italic mt-1">
+                                        <span class="lang-cn-text">在投中...</span>
+                                        <span class="lang-en-text">Status: Under Review...</span>
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -472,9 +518,55 @@
                 </div>
             </section>
 
+            <!-- 互动区：访问量 & 点赞 -->
+            <section id="page-stats" class="mt-8">
+                <div class="bg-white rounded-xl shadow-md px-6 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                    <!-- 访问量 -->
+                    <div class="flex items-center space-x-3">
+                        <div class="flex items-center justify-center w-10 h-10 rounded-full bg-indigo-50">
+                            <svg data-lucide="activity" class="w-5 h-5"></svg>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500">
+                                <span class="lang-cn-text">页面访问量</span>
+                                <span class="lang-en-text">Page Views</span>
+                            </p>
+                            <p class="text-xl font-semibold text-gray-900">
+                                <span id="view-count">—</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- 点赞 -->
+                    <div class="flex items-center space-x-4">
+                        <div class="text-right">
+                            <p class="text-sm text-gray-500">
+                                <span class="lang-cn-text">喜欢我们实验室的可以点个赞 😊</span>
+                                <span class="lang-en-text">If you like this page, give it a thumbs-up!</span>
+                            </p>
+                            <p class="text-sm text-gray-500 mt-1">
+                                <span class="lang-cn-text">已获得点赞：</span>
+                                <span class="lang-en-text">Total likes:</span>
+                                <span id="like-count" class="font-semibold text-gray-900">0</span>
+                            </p>
+                        </div>
+                        <button
+                            id="like-button"
+                            type="button"
+                            class="inline-flex items-center px-4 py-2 rounded-full border border-gray-200 bg-white text-gray-700 text-sm font-medium shadow-sm hover:bg-gray-50 transition"
+                        >
+                            <svg data-lucide="heart" class="w-4 h-4 mr-2"></svg>
+                            <span class="lang-cn-text">点赞</span>
+                            <span class="lang-en-text">Like</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
-        <!-- 底部版权信息 --><footer class="bg-gray-100 text-gray-600 mt-16 py-8 border-t border-gray-200">
+        <!-- 底部版权信息 -->
+        <footer class="bg-gray-100 text-gray-600 mt-16 py-8 border-t border-gray-200">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
                 <p>
                     <span class="lang-cn-text">&copy; 2025 健康数据科学与智能实验室. 版权所有.</span>
@@ -485,7 +577,8 @@
                     <span class="lang-en-text">Contact: </span>
                     <a href="mailto:contact@hdsi.lab" class="text-indigo-600 hover:text-indigo-800">contact@hdsi.lab</a>
                 </p>
-                <!-- 新增：由 Gemini 生成的声明 --><p class="text-xs text-gray-600 mt-2">
+                <!-- 新增：由 Gemini 生成的声明 -->
+                <p class="text-xs text-gray-600 mt-2">
                     <span class="lang-cn-text">此页面由 Gemini 生成。</span>
                     <span class="lang-en-text">This page was generated by Gemini.</span>
                 </p>
@@ -493,7 +586,8 @@
         </footer>
     </div>
 
-    <!-- JavaScript for Tab and Language Switching --><script>
+    <!-- JavaScript for Tab and Language Switching -->
+    <script>
         const app = {
             activeTab: 'research', // 默认激活研究方向
             currentLang: 'cn', // 默认中文
@@ -561,10 +655,105 @@
             }
         };
 
+        // ---------- 访问量 & 点赞统计 ----------
+        const COUNTER_API_BASE = 'https://api.countapi.dev';
+        const COUNTER_NAMESPACE = 'thuhdsi_lab';     // 可以改成你喜欢的命名空间
+        const VIEW_KEY = 'homepage_views';
+        const LIKE_KEY = 'homepage_likes';
+        // const LIKE_LOCAL_KEY = 'thuhdsi_lab_liked'; // 本地防止重复点赞
+
+        async function updateViewCount() {
+            try {
+                const res = await fetch(`${COUNTER_API_BASE}/hit/${COUNTER_NAMESPACE}/${VIEW_KEY}`);
+                const data = await res.json();
+                const viewEl = document.getElementById('view-count');
+                if (viewEl && typeof data.value === 'number') {
+                    viewEl.textContent = data.value.toLocaleString();
+                }
+            } catch (err) {
+                console.error('View counter error:', err);
+            }
+        }
+
+        async function loadLikeCount() {
+            try {
+                const res = await fetch(`${COUNTER_API_BASE}/get/${COUNTER_NAMESPACE}/${LIKE_KEY}`);
+                const data = await res.json();
+                const likeEl = document.getElementById('like-count');
+                if (likeEl && typeof data.value === 'number') {
+                    likeEl.textContent = data.value.toLocaleString();
+                }
+            } catch (err) {
+                // 如果还没有这个 key，会返回 404，忽略即可
+                console.warn('Like counter get error (maybe not initialized yet):', err);
+            }
+        }
+
+        async function incrementLikeCount() {
+            try {
+                const res = await fetch(`${COUNTER_API_BASE}/hit/${COUNTER_NAMESPACE}/${LIKE_KEY}`);
+                const data = await res.json();
+                const likeEl = document.getElementById('like-count');
+                if (likeEl && typeof data.value === 'number') {
+                    likeEl.textContent = data.value.toLocaleString();
+                }
+            } catch (err) {
+                console.error('Like counter hit error:', err);
+            }
+        }
+
+        function markLiked(button) {
+            if (!button) return;
+            button.classList.remove('bg-white', 'text-gray-700', 'hover:bg-gray-50');
+            button.classList.add('bg-rose-50', 'text-rose-600');
+            const icon = button.querySelector('svg');
+            if (icon) {
+                icon.classList.add('fill-rose-500');
+            }
+        }
+
+        // function initLikeButton() {
+        //     const btn = document.getElementById('like-button');
+        //     if (!btn) return;
+
+        //     // 如果当前浏览器已经点过赞，界面直接展示“已点赞”状态
+        //     const alreadyLiked = localStorage.getItem(LIKE_LOCAL_KEY) === '1';
+        //     if (alreadyLiked) {
+        //         markLiked(btn);
+        //     }
+
+        //     btn.addEventListener('click', async () => {
+        //         if (localStorage.getItem(LIKE_LOCAL_KEY) === '1') {
+        //             return; // 防止当前浏览器多次点赞
+        //         }
+        //         await incrementLikeCount();
+        //         localStorage.setItem(LIKE_LOCAL_KEY, '1');
+        //         markLiked(btn);
+        //     });
+        // }
+
+        function initLikeButton() {
+        const btn = document.getElementById('like-button');
+        if (!btn) return;
+
+        // 不再做本地防重复：每次点击都 +1
+        btn.addEventListener('click', async () => {
+            await incrementLikeCount();
+            markLiked(btn);
+        });
+    }
+    
+        function initCounters() {
+            updateViewCount();
+            loadLikeCount();
+            initLikeButton();
+        }
+
         // 页面加载完成后运行初始化
-        window.onload = () => {
+        window.addEventListener('load', () => {
             app.init();
-        };
+            initCounters();  // 启动访问量和点赞功能
+        });
     </script>
 </body>
 </html>
